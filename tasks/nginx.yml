@@ -1,0 +1,12 @@
+---
+
+- include: "nginx/install/repository.yml"
+  tags:    [nginx, install, repository]
+
+- include: "nginx/create/fakebin.yml"
+  tags:    [nginx, create, fakebin]
+
+- include: "nginx/install/package.yml"
+  tags:    [nginx, install, repository]
+
+

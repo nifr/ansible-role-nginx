@@ -1,0 +1,23 @@
+---
+
+-  name: "nginx:create:fakebin | Create fakebin directory "
+   set_fact:
+    fakebin_path:        '/tmp/fakebin'
+    fakebin_executables: '["initctl","invoke-rc.d","restart","start","stop","start-stop-daemon","service"]'
+
+- name: "Ensure fakebin directory"
+  file:
+    path:  '{{ fakebin_path }}'
+    state: 'directory'
+  sudo: yes
+
+- name: "nginx:create:fakebin:executables | Create fake executables "
+  file:
+    state: 'link'
+    src:   '/bin/true'
+    dest:  '{{ fakebin_path }}/{{ item }}'
+  with_items:
+    - '{{ fakebin_executables }}'
+  sudo: yes
+
+

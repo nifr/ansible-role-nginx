@@ -1,0 +1,6 @@
+---
+
+- name: "nginx:install:repository | Add the nginx repository "
+  apt_repository:
+    repo: '{{ nginx_repository }}'
+  sudo: yes

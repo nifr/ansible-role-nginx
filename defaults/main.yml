@@ -1,0 +1,4 @@
+nginx_stability:    'stable' # stable|development
+nginx_repository:   'ppa:nginx/{{ nginx_stability }}'
+nginx_version:      'full'    # light|full|extras
+nginx_package_name:  'nginx-{{ nginx_version }}'

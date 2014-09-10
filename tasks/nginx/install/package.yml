@@ -1,0 +1,9 @@
+---
+
+- name: "nginx:install:package | Ensure nginx package is installed "
+  apt:
+    name:  '{{ nginx_package_name }}'
+    state: 'present'
+  environment:
+    PATH: "{{ fakebin_path }}:{{ ansible_env.PATH }}"
+  sudo: yes
