@@ -1,4 +1,35 @@
-nginx_stability:    'stable' # stable|development
-nginx_repository:   'ppa:nginx/{{ nginx_stability }}'
-nginx_version:      'full'    # light|full|extras
-nginx_package_name:  'nginx-{{ nginx_version }}'
+---
+
+## @var <string> ('stable'|'development')
+nginx_stability:                'stable' # stable|development
+
+## @var <string> deb-src|ppa
+nginx_repository:               'ppa:nginx/{{ nginx_stability }}'
+
+## @var <string> ('light'|'full'|'extras')
+nginx_version:                  'full'    # light|full|extras
+
+## @var <string> package-name
+nginx_package_name:             'nginx-{{ nginx_version }}'
+
+## @var <string|int> [0-6]
+nginx_installation_runlevel:    1
+
+## @var <string> path:directory
+nginx_path_sites_available:     '/etc/nginx/sites-available/'
+
+## @var <string> path:directory
+nginx_path_sites_enabled:       '/etc/nginx/sites-enabled/'
+
+## @var <string> path:directory
+nginx_path_http_auth:           '/etc/nginx/http-auth/'
+
+## @var <string> path:directory
+nginx_path_ssl_certs:            '/etc/nginx/ssl-certs/'
+
+## @var <string> path:directory
+nginx_path_log:                 '/var/log/nginx/'
+
+## @var <bool>
+nginx_start_service:             true
+

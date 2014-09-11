@@ -1,0 +1,3 @@
+---
+
+- include: "../vhost.yml nginx_vhost_name=default"

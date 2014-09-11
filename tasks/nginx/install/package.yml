@@ -1,9 +1,15 @@
 ---
 
+##
+## @param nginx_installation_runlevel
+## @param nginx_package_name
+##
 - name: "nginx:install:package | Ensure nginx package is installed "
   apt:
-    name:  '{{ nginx_package_name }}'
+    name:  '{{ item.package }}'
     state: 'present'
   environment:
-    PATH: "{{ fakebin_path }}:{{ ansible_env.PATH }}"
-  sudo: yes
+    RUNLEVEL: '{{ item.runlevel }}'
+  with_items:
+    - '{ "package": "{{ nginx_package_name }}", "runlevel": "{{ nginx_installation_runlevel }}" }'
+  sudo: true

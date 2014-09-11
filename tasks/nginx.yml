@@ -3,10 +3,35 @@
 - include: "nginx/install/repository.yml"
   tags:    [nginx, install, repository]
 
-- include: "nginx/create/fakebin.yml"
-  tags:    [nginx, create, fakebin]
-
 - include: "nginx/install/package.yml"
   tags:    [nginx, install, repository]
+
+- include: "nginx/get/service/status.yml"
+  tags:    [nginx, get, service, status]
+
+- include: "nginx/create/sites-available/directory.yml"
+  tags:    [nginx, create, sites-available, directory]
+
+- include: "nginx/create/sites-enabled/directory.yml"
+  tags:    [nginx, create, sites-enabled, directory]
+
+- include: "nginx/create/log/directory.yml"
+  tags:    [nginx, create, log, directory]
+
+- include: "nginx/disable/default/vhost.yml"
+  tags:    [nginx, disable, default, vhost]
+
+- include: "nginx/remove/default/vhost.yml"
+  tags:    [nginx, disable, default, vhost]
+
+- include: "nginx/service/start.yml"
+  when:    '( (not nginx_service_is_running|bool) and (nginx_start_service == true) )'
+  tags:    [nginx, service, start]
+
+- include: "nginx/service/reload.yml"
+  when:    '( nginx_service_is_running|bool )'
+  tags:    [nginx, service, reload]
+
+
 
 

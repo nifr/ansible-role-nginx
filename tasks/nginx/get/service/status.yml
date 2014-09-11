@@ -1,0 +1,12 @@
+---
+
+- name: "nginx:get:service:status:command"
+  command: "service nginx status"
+  register: nginx_service_status_command
+  changed_when: false
+  failed_when:  false
+  sudo: yes
+
+- name: "nginx:get:service:status:result"
+  set_fact:
+    nginx_service_is_running: '{{ true if (nginx_service_status_command.rc == 0) else false }}'

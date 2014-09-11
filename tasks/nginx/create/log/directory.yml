@@ -1,0 +1,12 @@
+---
+
+##
+## @param nginx_path_sites_http_auth
+##
+- name: "nginx:create:log:directory | Create nginx's log directory "
+  file:
+    state: 'directory'
+    path:  '{{ item.path }}'
+  with_items:
+    - '{ "path": "{{ nginx_path_log }}" }'
+  sudo:    true

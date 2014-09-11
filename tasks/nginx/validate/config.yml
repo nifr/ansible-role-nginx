@@ -1,0 +1,11 @@
+---
+
+- name:   "nginx:validate:config:command"
+  command: 'nginx -t'
+  register: 'nginx_config_validation_command'
+  changed_when: 'nginx_config_validation_command.rc != 0'
+  sudo:    true
+
+- name: "nginx:validate:config:variable"
+  set_fact:
+    nginx_config_is_valid: '{{ true if (nginx_config_command.rc|default(1) != 0) else false }}'

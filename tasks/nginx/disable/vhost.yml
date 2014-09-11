@@ -1,0 +1,10 @@
+---
+
+- name: "nginx:disable:vhost | Removes the symlink from the <sites-enabled> directory "
+  file:
+    state: absent
+    path:  "{{ nginx_path_sites_enabled }}/{{ item.vhost }}"
+  with_items:
+    - '{ "vhost": "{{ nginx_vhost_name }}" }'
+  sudo:    true
+  notify:  'service:nginx:reload'

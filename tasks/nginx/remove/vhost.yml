@@ -1,0 +1,9 @@
+---
+
+- name: "nginx:remove:vhost | Delete configuration file from <sites-available> "
+  file:
+    state: 'absent'
+    path:  '{{ item.vhost }}'
+  with_items:
+    - '{ "vhost": "{{ nginx_vhost_name }}" }'
+  sudo:    true

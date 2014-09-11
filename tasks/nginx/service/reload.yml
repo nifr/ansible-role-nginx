@@ -1,0 +1,7 @@
+---
+
+- name: "nginx:service:reload | Reload the nginx configuration"
+  service:
+    name:  'nginx'
+    state: 'reloaded'
+  sudo: true

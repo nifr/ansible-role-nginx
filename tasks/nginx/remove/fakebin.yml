@@ -1,7 +1,0 @@
----
-
-- name: "nginx:remove:fakebin | Remove fakebin"
-  file:
-    state:   "absent"
-    path:    "/tmp/fakebin"
-  sudo:    yes
