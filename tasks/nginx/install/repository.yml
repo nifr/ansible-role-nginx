@@ -5,4 +5,3 @@
     repo: '{{ nginx_repository }}'
   with_items:
     - '{ "repository": "{{ nginx_repository }}" }'
-  sudo: yes

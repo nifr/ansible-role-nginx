@@ -7,5 +7,4 @@
     src:   "{{ item.to }}"
   with_items:
     - '{ "to": "{{ nginx_path_sites_available ~ "/" ~ nginx_vhost_name }}", "from": "{{ nginx_path_sites_enabled ~ "/" ~ nginx_vhost_name }}" }'
-  sudo:    true
   notify:  'service:nginx:reload'

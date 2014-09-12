@@ -6,4 +6,3 @@
     path:  '{{ item.vhost }}'
   with_items:
     - '{ "vhost": "{{ nginx_vhost_name }}" }'
-  sudo:    true

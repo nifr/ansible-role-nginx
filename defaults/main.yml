@@ -31,5 +31,8 @@ nginx_path_ssl_certs:            '/etc/nginx/ssl-certs/'
 nginx_path_log:                 '/var/log/nginx/'
 
 ## @var <bool>
-nginx_start_service:             true
+nginx_service_status:            started
+
+## @var <bool>
+nginx_is_running:                false
 

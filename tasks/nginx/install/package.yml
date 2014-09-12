@@ -12,4 +12,3 @@
     RUNLEVEL: '{{ item.runlevel }}'
   with_items:
     - '{ "package": "{{ nginx_package_name }}", "runlevel": "{{ nginx_installation_runlevel }}" }'
-  sudo: true

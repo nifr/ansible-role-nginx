@@ -1,8 +1,5 @@
 ---
 
-- debug: var=passed_vars
-  tags: nginx
-
 - include: "nginx/install/repository.yml"
   tags:    [nginx, install, repository]
 
@@ -27,18 +24,13 @@
 - include: "nginx/remove/default/vhost.yml"
   tags:    [nginx, disable, default, vhost]
 
+- include: "nginx/set/configuration.yml"
+  tags:    [nginx, set, configuration]
+
 - include: "nginx/service/start.yml"
-  when:    '( (not nginx_service_is_running|bool) and (nginx_start_service == true) )'
+  when:    '( (not nginx_service_is_running|bool) and (nginx_service_status == "started") )'
   tags:    [nginx, service, start]
 
-# @TODO currently not working. Need a way to access tags of command invocation - 'tags' variable holds the ones defined on the task itself.
-#- include: "nginx/service/stop.yml"
-#  when:    '( ("nginx" in tags) and ("service" in tags) and ("stop" in tags) )'
-#  tags:    [nginx, service, stop]
-
-- include: "nginx/service/reload.yml"
-  when:    '( nginx_service_is_running|bool )'
-  tags:    [nginx, service, reload]
-
-
-
+- include: "nginx/service/stop.yml"
+  when:    '( (nginx_service_is_running|bool) and (nginx_service_status == "stopped") )'
+  tags:    [nginx, service, stop]

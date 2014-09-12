@@ -6,5 +6,4 @@
     path:  "{{ nginx_path_sites_enabled }}/{{ item.vhost }}"
   with_items:
     - '{ "vhost": "{{ nginx_vhost_name }}" }'
-  sudo:    true
   notify:  'service:nginx:reload'

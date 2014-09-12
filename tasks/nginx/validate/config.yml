@@ -4,7 +4,6 @@
   command: 'nginx -t'
   register: 'nginx_config_validation_command'
   changed_when: 'nginx_config_validation_command.rc != 0'
-  sudo:    true
 
 - name: "nginx:validate:config:variable"
   set_fact:

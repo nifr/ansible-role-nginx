@@ -9,4 +9,3 @@
     path:  '{{ item.path }}'
   with_items:
     - '{{ nginx_path_ssl_certs }}'
-  sudo:    true
