@@ -1,4 +1,4 @@
 ---
 
-- name:    "nginx:enable:default:vhost | Disable the default vhost "
+- name:    "nginx:enable:default:vhost | Enable the default vhost "
   include: "../vhost.yml nginx_vhost_name=default"

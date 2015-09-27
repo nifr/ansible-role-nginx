@@ -18,11 +18,20 @@
 - include: "nginx/create/log/directory.yml"
   tags:    [nginx, create, log, directory]
 
-- include: "nginx/disable/default/vhost.yml"
-  tags:    [nginx, disable, default, vhost]
+- include: "nginx/create/vhosts.yml"
+  tags:    [nginx, create, vhosts]
 
-- include: "nginx/remove/default/vhost.yml"
-  tags:    [nginx, disable, default, vhost]
+#- include: "nginx/disable/default/vhost.yml"
+#  tags:    [nginx, disable, default, vhost]
+#
+#- include: "nginx/remove/default/vhost.yml"
+#  tags:    [nginx, disable, default, vhost]
+
+- include: "nginx/disable/vhosts.yml"
+  tags:    [nginx, disable, vhosts]
+
+- include: "nginx/enable/vhosts.yml"
+  tags:    [nginx, enable, vhosts]
 
 - include: "nginx/set/configuration.yml"
   tags:    [nginx, set, configuration]
