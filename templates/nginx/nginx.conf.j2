@@ -1,0 +1,17 @@
+#{{ ansible_managed }}
+
+{% for directive in nginx_config_root -%}
+    {{ directive.keys().0 }} {{ directive.values().0 }};
+{% endfor %}
+
+events {
+{% for directive in nginx_config_events %}
+    {{ directive.keys().0 }} {{ directive.values().0 }};
+{% endfor %}
+}
+
+http {
+{% for directive in nginx_config_http %}
+    {{ directive.keys().0 }} {{ directive.values().0 }};
+{% endfor %}
+}

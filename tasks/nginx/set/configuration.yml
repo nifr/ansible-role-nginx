@@ -1,0 +1,8 @@
+---
+
+- name: "nginx:set:configuration | Copy the nginx configuration file "
+  template:
+    src:  '../../../templates/nginx/nginx.conf.j2'
+    dest: '{{ nginx_path_config_main }}'
+  notify:
+    - 'service:nginx:reload'

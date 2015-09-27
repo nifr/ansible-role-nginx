@@ -1,0 +1,6 @@
+---
+
+- name: "nginx:service:stop | Stop the nginx service "
+  service:
+    state: 'stopped'
+    name:  'nginx'

@@ -1,0 +1,9 @@
+---
+
+- name: "nginx:disable:vhosts | Removes the symlinks from the <sites-enabled> directory "
+  file:
+    state: absent
+    path:  "{{ nginx_path_sites_enabled }}/{{ item }}"
+  with_items: 
+    - '{{ nginx_vhosts|selectattr("enabled", "sameas", false)|map(attribute="name")|list }}'
+  notify:  'service:nginx:reload'

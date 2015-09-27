@@ -1,0 +1,11 @@
+---
+
+- name: "nginx:enable:vhosts | Links the vhost configurations into <sites-enabled> directory "
+  file:
+    state: link
+    dest:  '{{ nginx_path_sites_enabled ~ "/" ~ item }}'
+    src:   '{{ nginx_path_sites_available ~ "/" ~ item }}'
+  with_items: 
+    - '{{ nginx_vhosts|selectattr("enabled", "sameas", true)|map(attribute="name")|list }}'
+  notify:  'service:nginx:reload'
+

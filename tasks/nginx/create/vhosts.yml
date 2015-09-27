@@ -1,0 +1,11 @@
+---
+
+- name: "nginx:create:vhosts | Create configured vhosts "
+  template:
+    src:  '../../../templates/nginx/nginx-vhost.conf.j2'
+    dest: '{{ nginx_path_sites_available }}/{{ item.0.name }}'
+  with_subelements:
+    - nginx_vhosts|rejectattr("config", "undefined")|list
+    - config
+  notify:
+    - 'service:nginx:reload'

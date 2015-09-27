@@ -1,0 +1,7 @@
+---
+
+- name: "nginx:service:start"
+  service:
+    name:    'nginx'
+    state:   'started'
+    enabled: 'yes'

@@ -1,0 +1,17 @@
+{% macro nginx_config(config, level=0) -%}
+{% set indent = '' if level is sameas 0 else (level * 4 * ' ') %}
+{% if config is string %}
+{{ indent ~ config }}
+{% elif ((config is mapping) and (config.values().0 is string)) %}
+{{ indent ~ config.keys().0 }} {{ config.values().0 }};
+{%- elif (config is mapping) %}
+{{ indent ~ config.keys().0 }} {
+{% for directive in config.values().0 -%}
+{{ nginx_config(directive, (level+1)) }}
+{% endfor -%}
+{{- indent ~ '}' -}}
+{%- endif %}
+{% endmacro %}
+#{{ ansible_managed }}
+
+{{ nginx_config(item.1) }}
