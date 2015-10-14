@@ -14,4 +14,8 @@
 {% endmacro %}
 #{{ ansible_managed }}
 
-{{ nginx_config(item.1) }}
+{% if item.config is defined %}
+{% for section in item.config -%}
+{{ nginx_config(section) }}
+{% endfor -%}
+{%- endif %}
