@@ -3,4 +3,4 @@
 - name: "service:nginx:stop"
   service:
     name:  'nginx'
-    state: 'started'
+    state: 'stopped'
