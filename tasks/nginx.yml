@@ -3,6 +3,9 @@
 - include: "nginx/install/repository.yml"
   tags:    [nginx, install, repository]
 
+- include: "nginx/install/dependencies.yml"
+  tags:    [nginx, install, dependencies]
+
 - include: "nginx/install/package.yml"
   tags:    [nginx, install, repository]
 
@@ -20,6 +23,9 @@
 
 - include: "nginx/create/vhosts.yml"
   tags:    [nginx, create, vhosts]
+
+- include: "nginx/create/http-auth.yml"
+  tags:    [nginx, create, auth]
 
 #- include: "nginx/disable/default/vhost.yml"
 #  tags:    [nginx, disable, default, vhost]

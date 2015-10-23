@@ -1,0 +1,7 @@
+---
+
+- include: "http-auth/directory.yml"
+  tags:    [nginx, create, auth]
+
+- include: "http-auth/files.yml"
+  tags:    [nginx, create, auth]

@@ -106,3 +106,7 @@ nginx_vhosts:
          - server_name: 'localhost'
          - "location /":
              - try_files: '$uri $uri/ =404'
+
+nginx_http_auth_files:
+  - name: default
+    users: []
