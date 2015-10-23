@@ -1,11 +1,9 @@
 ---
 
 ##
-## @param nginx_path_sites_http_auth
+## @param nginx_path_http_auth
 ##
-- name: "nginx:create:http-auth:directory | Create directory for http authentication files "
+- name: "nginx:create:http-auth:directory | Create directory for http authentication files"
   file:
     state: 'directory'
-    path:  '{{ item.path }}'
-  with_items:
-    - '{{ nginx_path_sites_http_auth }}'
+    path:  '{{ nginx_path_http_auth }}'

@@ -106,3 +106,14 @@ nginx_vhosts:
          - server_name: 'localhost'
          - "location /":
              - try_files: '$uri $uri/ =404'
+         - "location /protected":
+             - try_files: '$uri $uri/ =404'
+             - auth_basic: '"Protected"'
+             - auth_basic_user_file: '{{ nginx_path_http_auth }}/default'
+
+nginx_http_auth_files:
+  - name: default
+    users:
+      - name: 'username'
+        password: 'secret'
+        comment: ''
