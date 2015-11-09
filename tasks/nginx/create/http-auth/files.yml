@@ -12,6 +12,7 @@
     group: '{{ nginx_group }}'
     mode: '0600'
   with_items: nginx_http_auth_files
+  changed_when: false
 
 - name: "nginx:create:http-auth:users | Create users for http authentication"
   htpasswd:
