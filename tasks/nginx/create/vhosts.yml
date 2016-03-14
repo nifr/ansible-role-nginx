@@ -2,7 +2,7 @@
 
 - name: "nginx:create:vhosts | Create configured vhosts "
   template:
-    src:  '../../../templates/nginx/nginx-vhost.conf.j2'
+    src:  '{{ role_path + "/templates/nginx/nginx-vhost.conf.j2" }}'
     dest: '{{ nginx_path_sites_available }}/{{ item.name }}'
   with_items: nginx_vhosts
   when: 'item.config is defined'
